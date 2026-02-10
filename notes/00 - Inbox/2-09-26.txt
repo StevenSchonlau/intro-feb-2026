@@ -1,0 +1,80 @@
+From my OneNote
+
+Todos:
+New daily note - update
+
+Obsidian
+
+https://class.hypertheory-labs.com/guacamole/#/
+
+Foam ctrl shift p - new daily note
+	- How do I make readmes look like readmes in VSCode
+
+
+Notes:
+ Foundations of Distributed Apps Dev in the Modern enterprise
+
+The bad news is you are falling through space without a parachute. The good news is there is no ground.
+You will always be an imposter, feel over your head.  - development
+Coding around and finding out
+
+Applying busness problems to meet tech - bridge gap
+
+On at 9am-6pm
+
+Apache guacamole - connects to virtual machine (azure)
+ - free web based RDP
+
+student5
+Hypertheory_Training!
+
+student
+Hypertheory_Training!
+Domain empty
+
+Ctrl alt shift to open the settings on the left - changed password
+
+Good teaching style to teach and get feedback naturally
+
+Wiki links - [[file name]] - same in OneNote
+Ctrl click to make it test - same in OneNote
+
+Placeholder tabs on the bottom left
+He has like a dewey decimal system for organizing files
+
+
+
+Excalidraw - vscode lets you use this
+
+Even numbers long term (3 years), short term odd
+
+
+Explorer . - open explorer
+
+Captial Y/n just shows default
+
+Gh browse
+
+
+https://github.com/JeffryGonzalez/intro-feb-2026
+
+
+
+Diff folders panel free extension
+
+TCA framework inspired .NET
+ - assumed html
+
+.NET cannot run in the cloud - and data - switch to core to do on linux
+
+
+Environments is different places your code will run (dev, uat, prod)
+	- Provided backing services - not in charge of caring for or feeding databases
+	- Open ID Connect and OAuth2 standards that Ping Federated supports for db identity
+	- How to keep dev and test in sync with prod env w/db and auth?
+	- Service Orient Architecture (SOA) - primary architecture of big companies
+	
+
+Aspire - local dev env and deployable - kubernetes, docker compose, aws, azure
+
+Gateway

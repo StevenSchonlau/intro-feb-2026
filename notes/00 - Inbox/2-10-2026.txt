@@ -1,0 +1,102 @@
+From One note
+
+4 rules
+Martin fowlers
+-- passes tests - what you've done works (get requirements)
+-- reveals intention - it is more important to write understandable rather than professor's good grade
+-- no duplication - DRY - can't maintain in lots of places. But sometimes you don't know the duplication exists, and sometimes goes against reveals intention
+	- RUG - Repeat until good
+-- fewest elements (variables, decisions, and loops)
+ - bugs scale linearly. Write simplest thing you can. Even if slower code
+
+
+12factor.net
+	- How to deploy modern software
+
+Apire is analogous to docker compose
+Aspire.dev
+
+Ctrl k , ctrl d - for reformatting
+
+
+Creates/stops instance of db by default every time: .WithLifetime(ContainerLifetime.Persistent);
+
+
+F12 shows definition
+
+Left click dependencies to add dependencies between projects. Then reference them in the code. Ie for ServiceDefaults (logging)
+
+
+Unit of distribution in .NET is a "Assembly" ~ Jar
+1:1 assembly per project, solution just a way to organize these (doesn't mean anything to .NET)
+
+Assembly made of:
+Intermediate language (IL) ~ java bytecode
+Metadata - db of types
+
+We use prometheus, grafana, splunk for logging and tracing
+
+Open telemetry - industry standard to look more into?
+
+Resources - scheme (https/http), origin or authority - name of the website (DNS), the path/endpoint
+
+Representation - ie JSON you send, can be anything
+
+Methods: GET POST PUT DELETE  - are there others?
+
+The who is always answered in the auth header in http. I have always put it in uuid
+
+Documents vs collections - documents have identifier in URI, vs collections a list of documents
+	- Urls are logged in a lot of places
+	- Make url to have authorization header be the identifier
+		○ Bearer tokens - fake for a while
+
+Rest thing plugin - auto send this test in md - manual testing to test endpoint
+```http
+GET endpoint
+…
+```
+
+Build stateless processes, port binding - 12 factor
+
+https://datatracker.ietf.org/doc/html/rfc2616
+https://roy.gbiv.com/pubs/dissertation/fielding_dissertation.pdf
+REST in Practice (O'Reilly) -  but dated
+REST is loose coupling, links but a lot of software is not rest because it doesn't need links
+
+2 ways to get web server to pass requests to code
+	- Old way is controllers
+	- New way is controller-less minimal APIs (new to me)
+
+HTTP - more of a OS thing
+
+SOAP - created by industry - XML - .NET was created with this in mind
+
+WCF - windows communication foundation - expensive to update - tool simplification
+	- WCF, XML are being upgraded - avoid this
+
+DHH - created Ruby on Rails
+
+ASP.NET - democratize web design - MVC vs web api are very similar
+	- Does this apply to Spring Boot?
+
+401 - no authorization
+403 - wrong authorization
+404 - not found
+400 - formatted wrong
+
+
+.NET - not as strict with namespaces as Java where it has to line up with folders
+
+Program.cs is the main psvm
+ - when compiled will put psvm around it
+
+
+IEndpointRouteBuilder - implemented by App
+
+Ctrl . Will show error handling for red squiggly
+
+
+.NET chose not to do Java exception because a lot of people do catch all
+
+Ctrl . For moving a class into another file
