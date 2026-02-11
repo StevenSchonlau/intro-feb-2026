@@ -11,8 +11,17 @@ public static class ApiExtensions //api must be static
         // GET /student/moments
         public IEndpointRouteBuilder MapStudentEndpoints()
         {
+            
             var group = endpoints.MapGroup("/student/moments"); //can apply authorization just here
             group.MapPost("", StudentAddsMoment.AddMoment);
+            group.MapGet("", StudentGetsListOfSavedMoments.GetAllMomentsForStudent);
+            
+            //id automatically mapped to function param - error handling for mapping to Guid obj built in
+            group.MapDelete("/{id:guid}", StudentMarksMomentAnswered.MarkQuestionAnswered);
+
+            //TODO /student/answered-questions
+            group.MapGet("/answered-questions", StudentGetsListOfAnsweredQuestions.GetAllAnsweredMomentsForStudent);
+
             return group;
         }
     }

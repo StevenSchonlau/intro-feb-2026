@@ -51,10 +51,18 @@ Authorization: Bearer ???? (Fake this for while)
 
 
 ```http
-GET https://localhost:7059/student/moments 
-Authorization: why
+GET https://localhost:1337/student/moments 
+
 ```
 
+```http
+DELETE https://localhost:1337/student/moments/c06a5426-bb43-4bd1-909c-22f2847f8642
+```
+
+```http
+GET https://localhost:1337/student/moments/answered-questions 
+
+```
 
 ```
 200 Ok
