@@ -1,0 +1,133 @@
+From OneNote
+
+Muddiest Moments:
+	- How does a minimal api address the problems caused by memory allocations?
+Feel a lot better about MVC now
+
+I/O bound ops - networks, files, etc take the majority of a API call
+	- w/o async/await will be slightly faster
+	- Async/await deals with threads, lets it go when waiting
+		○ Will show up in production - thread pool starvation
+		○ Some better ways to do it, but bare minimum
+Await/async - in containers 
+Async methods always return a 'type' of something it is a wrapper, sometimes 'ValueTask'
+
+Reflection:
+Swashbuckle - tool to look at your code and generate the starter openapi spec
+Nswag - same thing
+
+Progressive uses postman
+
+Where does the session variable come from:
+	- When it doesn't map directly from request - looks in services collection - finds instance of object (what handles that interface)
+
+
+1. When do we use the async/await pattern (that your instructor hasn't even explained yet) in our C# code?
+    - To perform non-blocking operations, Whenever you make an endpoint that reaches out to another resource(service,database, etc)
+    - Async on function header, await on resource call
+2. What is Open API?
+    - Standard language format for RESTful APIs in JSON (and YAML)
+    - What is Scalar? (The thing we added to AppHost)
+        - Wrapper for Open API (updated version of swagger) that makes the json look nice and provides endpoint testing
+3. Why did we use an Http DELETE method in our `student/moments` endpoint when we really didn't "delete" anything?
+    - One of the four HTTP request types and DELETE fit the best
+    - Mark MM that have been answered, removing it from the returned table, modifying it
+4. Consider the following code we created yesterday:
+
+```csharp
+ public static async Task<IResult> MarkQuestionAnswered(Guid id, IDocumentSession session)
+    {
+        // ...
+    }
+```
+
+- How is our API being made "aware" that this is the code it should run when receiving an Http DELETE request to `student/moments/b0f17531-ca09-41dd-8654-d0eb180f6797` (for example)?
+    - Controllers: Using annotations
+    - Not Controllers: Using MapDelete in ApiExtensions - and then this called in program.cs
+- Where are the `id` and `session` variables coming from when this method is executed?
+    - The request, each request is a different session
+    - ? Please explain more (where session comes from)
+- If the API received a request of `DELETE /student/moments/bird-cage` what would the value of `id` be when this code is executed (uhm, might be a trick question), but explain your answer.
+    - ID gets defaulted to 0000...
+    - It produces a 404 error, because it can't run (can't cast to GUID)
+- The database provider we are using here calls it a "session", sometimes it's called a "context", and ASP.NET MVC (our platform for building APIs) calls it
+    a "scope". But they all mean basically the same thing in this context, which is:
+    - Transaction, Lifespan of a request, it either does all the things or none of them.
+
+
+Learn the culture of each programming language
+
+
+Developer testing - new term to me - exceeds normal software testing of requirements testing - adds thinking, finding concepts, deduplication, etc 4 simple designs - pass test, express intent, no duplication, fewest elements
+ - Guide for code review
+
+Passes the test
+	- Start with the end in mind - TDD
+	- We want lots of little organized pieces of code that clearly express intent
+	- Set a time limit for getting test to pass - couple minutes, then git reset. (Ulysses Principle)
+		○ Create another test to get a little closer, also prototyping
+	- Write tests that will require you to fix the bad parts of your code
+	- Helps you identify nuances of complexity
+		○ (helps for complex algorithms, not for things you aren't designing)
+	- Test the output, not the implementation
+	- Continuous Integration - build, various levels of testing (run fastest first, even if not likely to fail ie unit tests)
+		○ Use Azure devops or github actions
+
+C# - tests must be public class, name doesn't matter, public void method (for exception catching)
+
+Ctrl r then a -> run all tests
+
+Can add extensions to assert
+//arrange - given
+//act - when
+//assert - then
+
+Facts can't take arguments - in xunit
+Theory - can take arguments
+[InlineData(args)]
+
+
+//WTCYWYH - Write the code you wish you had. -> leads to cohesion
+
+A meaningfully failing test fails on the assert
+
+Ctrl . -> Create new type
+
+Do the simplest thing to move forward, hard code. 
+
+Duplication for tests is ok - intent matters more
+
+Each business rule should be only enforced in one or fewest tests (so if it changes you don't have to change everything)
+
+Can pin debugging value and write notes on it
+
+The more private you are the more flexibility you have
+
+
+Coupling - strength of relationship between code modules - how easy is it to change one thing without changing/breaking another
+Cohesion - how well things go together - "Incidental cohesion" (utils/helpers) - things are organized - "temporal" - "functional" - 
+	- Wikipedia page
+When writing code from TDD - helps to group things right
+
+
+Crtl r r - refactor variable
+
+
+Good code - the tests you have demonstrate the ability of the code
+
+Gold members - 10% bonus of deposit
+
+Ctrl r t just runs one test
+
+Most valuable thing you can do is find edge cases to bring to business
+
+When you find bug - write test to pass that
+
+Refactoring book by Martin someone
+
+Testing refactoring - will put effort during code, rather than "refactoring" sprint with no visible business value
+
+Code kata - not about getting it done, but writing just enough code to get to green.  Should not pass next requirement. Maliciously obedient
+
+Conways game of life
+

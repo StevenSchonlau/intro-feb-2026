@@ -1,0 +1,106 @@
+Instead of automating created systems (already somewhat optimized), we are creating from software things that have not been created already
+
+40% writing code is writing tests
+
+Drop in velocity at the beginning will help later - testing is needed
+
+VB, .NET, C#, F# - functional language OCAML variant -> all go to Common IL
+
+API vs MVC - combined
+
+JetBrains Writer is substitute for VS, or a lot of people use VSCode
+
+.slnx is much cleaner than .sln - most of the progressive stuff will be .sln
+
+
+
+Service: code that owns some data and all processes around that data ***
+
+HTTPS - transport layer security - TLS - is on the TCP level encrypted
+	- Requires certificate authority - big company has official cert
+	- ACME certification - lets encrypt - just to allow encryption
+	- Microsoft installs dev certificate unique to your machine and then ask browser to trust that
+Http - 80
+Https 443
+Mail (smtp) 25
+Sql 1433
+Postgres 5432
+
+TCP - connection oriented
+UDP - connectionless - notifications
+Http is an application level protocol
+
+
+
+
+MVC vs API
+
+Lifecycle of every new framework - new and used, then stuck, then hate it
+ASP.NET Active Server Pages -> Windows Communication Foundation -> 2016 ASP.NET MVC ->
+
+Heavier client - couldn't stick to web forms
+MVC is for stateful apps, but web is stateless
+
+Controller - traffic cop - what you do or get, creates model or returns the view
+View - student vs instructor view
+Model - source of truth
+
+Cargo culting?
+
+SOAP - stopped with iphone (after microsoft doubled down)
+	- WCF Web.API - adapter for mobile -> ASP.NET WEB.API
+
+
+MVC
+	- Controllers - has Services.AddControllers(), MapControllers() - use reflection to find all controllers and create the routine - extend one of a few controller classes, inherit web methods
+		○ [HttpGet("/todos")] - same as @Map
+	- Models - RoR has opinionated db, microsoft didn't want that
+	- Views
+	
+Reflection - while code is running have code that looks at itself, slow but only at startup (adds attributes)
+
+MVC - controller leads to garbage collection (non-halting, generational), also bloated controllers with grouping of topics, confusing with two objects in same endpoint, also start on demand APIs like serverless slower with reflection
+
+Progressive leaning into Amazon Lambda, Azure Function, Knative (kubernetes)
+
+AOT - ahead of time compilation - API AOT - slimbuilder() -> less services that can be compiled AOT native - only windows (80% better startup time)
+
+
+Minimal API - How does this address those problems?
+
+
+If your code is calling outside API project across network - you must use Async/Await - like React
+
+
+Mvc is marketing - spring is different
+
+
+Database:
+	- Connection strings - generalized info to connect to database
+	- Connectionstrings.com
+	- Open a connection with library/package specific to that
+		○ Entity framework - relational database - easiest by far if you are following industry best practice, apps don't share dbs (is an ObjectRelationalMapper)
+			§ Not worth connecting to existing db - use lighter thing like "dapper" OS library
+			§ Mongodb for nosql - no rules about data consistency (controversial opinion)
+				□ Sharing with other apps will probably hurt
+		○ For API will never open/close connection
+		○ Let db provider manage connections
+		○ Connection pooling
+		○ SRE - site reliability engineering - retry, error handling
+
+
+The context or session connects to database connection(vendor provided) which connects to databse
+
+Marten - document session - 
+
+
+Alt f12 shows preview of highlighted in vscode
+
+CURSOR - current set of records
+
+LINQ - language integrated query?
+
+
+Each controller and session per call to the server
+
+
